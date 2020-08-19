@@ -15,11 +15,11 @@ COMMENT=	Lightweight network intrusion detection system
 LICENSE=	GPLv2
 LICENSE_FILE=	${WRKSRC}/LICENSE
 
-BUILD_DEPENDS=	daq>=2.2.2:net/daq
+BUILD_DEPENDS=	daq>=2.0.0:net/daq
 LIB_DEPENDS=	libpcre.so:devel/pcre \
 		libdnet.so:net/libdnet \
 		libpcap.so:net/libpcap
-RUN_DEPENDS=	daq>=2.2.2:net/daq
+RUN_DEPENDS=	daq>=2.0.0:net/daq
 
 USES=			bison cpe libtool pathfix shebangfix ssl
 USE_RC_SUBR=		snort
@@ -54,7 +54,6 @@ NONETHER_DESC=		Non-Ethernet Decoders
 NORMALIZER_DESC=	Normalizer
 PERFPROFILE_DESC=	Performance profiling
 SOURCEFIRE_DESC=	Sourcefire recommended build options
-TARGETBASED_DESC=	Targetbased support
 APPID_DESC=		Build with application id support (EXPERIMENTAL)
 HA_DESC=		Enable high-availability state sharing (EXPERIMENTAL)
 FILEINSPECT_DESC=	Build with extended file inspection features (EXPERIMENTAL)
@@ -78,14 +77,14 @@ FILEINSPECT_CONFIGURE_ENABLE=	file-inspect
 
 BARNYARD_RUN_DEPENDS=	barnyard2:security/barnyard2
 PULLEDPORK_RUN_DEPENDS=	pulledpork.pl:security/pulledpork
-APPID_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit21
-APPID_CONFIGURE_ENV+=	luajit_CFLAGS="-I${LOCALBASE}/include/luajit-2.1" \
+APPID_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit
+APPID_CONFIGURE_ENV+=	luajit_CFLAGS="-I${LOCALBASE}/include/luajit-2.0" \
 			luajit_LIBS="-L${LOCALBASE}/lib -lluajit-5.1"
 
 .include <bsd.port.options.mk>
 
 CONFIG_FILES=	classification.config gen-msg.map reference.config \
-		snort.conf threshold.conf unicode.map file_magic.conf attribute_table.dtd
+		snort.conf threshold.conf unicode.map file_magic.conf
 
 DOCS=		RELEASE.NOTES doc/AUTHORS doc/BUGS doc/CREDITS \
 		doc/README* doc/USAGE doc/*.pdf
