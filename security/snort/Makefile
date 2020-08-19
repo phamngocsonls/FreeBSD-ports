@@ -2,7 +2,7 @@
 # $FreeBSD$
 
 PORTNAME=	snort
-PORTVERSION=	2.9.16
+PORTVERSION=	2.9.15.1
 CATEGORIES=	security
 MASTER_SITES=	https://snort.org/downloads/snort/ \
 		ZI
@@ -54,6 +54,7 @@ NONETHER_DESC=		Non-Ethernet Decoders
 NORMALIZER_DESC=	Normalizer
 PERFPROFILE_DESC=	Performance profiling
 SOURCEFIRE_DESC=	Sourcefire recommended build options
+TARGETBASED_DESC=	Targetbased support
 APPID_DESC=		Build with application id support (EXPERIMENTAL)
 HA_DESC=		Enable high-availability state sharing (EXPERIMENTAL)
 FILEINSPECT_DESC=	Build with extended file inspection features (EXPERIMENTAL)
@@ -77,7 +78,7 @@ FILEINSPECT_CONFIGURE_ENABLE=	file-inspect
 
 BARNYARD_RUN_DEPENDS=	barnyard2:security/barnyard2
 PULLEDPORK_RUN_DEPENDS=	pulledpork.pl:security/pulledpork
-APPID_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit-openresty
+APPID_LIB_DEPENDS=	libluajit-5.1.so:lang/luajit21
 APPID_CONFIGURE_ENV+=	luajit_CFLAGS="-I${LOCALBASE}/include/luajit-2.1" \
 			luajit_LIBS="-L${LOCALBASE}/lib -lluajit-5.1"
 
